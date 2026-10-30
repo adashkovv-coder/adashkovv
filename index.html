@@ -8,134 +8,10 @@
 <meta name="theme-color" content="#0a1128">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Подключаем шрифты -->
 <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@300;400;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-
-<style>
-/* ============================================================
-   ПЕРЕМЕННЫЕ (ТЕМНО-СИНЯЯ ПАЛИТРА)
-   ============================================================ */
-:root{
-  --bg:        #0a1128; /* Глубокий темно-синий */
-  --bg-soft:   #101c3d; /* Чуть светлее для карточек */
-  --ink:       #ffffff; /* Белый текст */
-  --ink-soft:  #8b9bb4; /* Серо-голубой для подписей */
-  --accent:    #4a90e2; /* Яркий неоновый синий акцент */
-  --line:      rgba(255,255,255,.1);
-}
-
-*{box-sizing:border-box; margin:0; padding:0;}
-html{scroll-behavior:smooth;}
-body{
-  background:var(--bg);
-  color:var(--ink);
-  font-family:'Inter', sans-serif;
-  font-weight:300;
-  line-height:1.7;
-  -webkit-font-smoothing:antialiased;
-  overflow-x:hidden;
-}
-img{max-width:100%; display:block; object-fit: cover;}
-
-.container{max-width:1180px; margin:0 auto; padding:0 32px;}
-@media(max-width:640px){.container{padding:0 20px;}}
-
-/* ============ ОБЩИЕ ============ */
-.eyebrow{
-  font-size:12px; letter-spacing:.3em; text-transform:uppercase;
-  color:var(--accent); margin-bottom:18px; display:inline-block;
-}
-.h2{
-  font-family:'Unbounded', sans-serif;
-  font-size:clamp(28px,4vw,48px); font-weight:400;
-  line-height:1.2; margin-bottom:32px;
-}
-.h2 em{font-style:normal; color:var(--accent);}
-
-/* ============ HERO ============ */
-.hero{
-  position:relative; min-height:100vh;
-  display:flex; align-items:center;
-  background: radial-gradient(circle at 70% 30%, rgba(74,144,226,.15), transparent 50%), var(--bg);
-}
-.hero__content{
-  max-width:700px; z-index:2; position:relative;
-  animation: fadeUp 1s ease both;
-}
-.hero__title{
-  font-family:'Unbounded', sans-serif;
-  font-size:clamp(40px,7vw,80px); font-weight:600;
-  line-height:1.05; margin-bottom:24px;
-}
-.hero__sub{
-  font-size:18px; color:var(--ink-soft); max-width:500px; margin-bottom:44px;
-}
-.btn{
-  display:inline-block; padding:16px 40px; border-radius:100px;
-  font-size:14px; font-weight:500; text-decoration:none;
-  transition: .3s ease; cursor:pointer; border:none;
-}
-.btn--primary{background:var(--accent); color:#fff;}
-.btn--primary:hover{transform:translateY(-3px); box-shadow:0 10px 30px rgba(74,144,226,.4);}
-.btn--outline{border:1px solid var(--line); color:#fff; margin-left: 15px;}
-.btn--outline:hover{border-color:var(--accent); color:var(--accent);}
-
-@keyframes fadeUp{ from{opacity:0; transform:translateY(30px);} to{opacity:1; transform:none;} }
-
-/* ============ ABOUT ============ */
-.about{padding:120px 0; background:var(--bg-soft);}
-.about__grid{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;}
-.about__img{border-radius:20px; overflow:hidden; box-shadow:0 20px 50px rgba(0,0,0,.3);}
-.about__text p{font-size:16px; margin-bottom:20px; color:var(--ink-soft);}
-.about__text strong{color:#fff; font-weight:500;}
-
-/* ============ SERVICES ============ */
-.services{padding:120px 0;}
-.services__grid{display:grid; grid-template-columns:1fr 1fr; gap:32px;}
-.service-card{
-  background:var(--bg-soft); padding:48px; border-radius:24px;
-  border:1px solid var(--line); transition: .4s ease;
-}
-.service-card:hover{border-color:var(--accent); transform:translateY(-5px);}
-.service-card h3{font-family:'Unbounded'; font-size:24px; margin-bottom:16px; color:var(--accent);}
-.service-card p{color:var(--ink-soft); font-size:15px;}
-
-/* ============ PORTFOLIO (ПРИМЕРЫ) ============ */
-.portfolio{padding:120px 0; background:var(--bg-soft);}
-.portfolio__grid{
-  display:grid; grid-template-columns:repeat(2, 1fr); gap:24px; margin-top:40px;
-}
-.portfolio__item{
-  border-radius:20px; overflow:hidden; aspect-ratio: 16/9; background:#000;
-  position:relative; cursor:pointer;
-}
-.portfolio__item img{width:100%; height:100%; opacity:.7; transition:.4s;}
-.portfolio__item:hover img{opacity:1; transform:scale(1.05);}
-.portfolio__label{
-  position:absolute; bottom:20px; left:20px; background:rgba(10,17,40,.8);
-  padding:8px 16px; border-radius:50px; font-size:12px; backdrop-filter: blur(10px);
-}
-
-/* ============ REVIEWS ============ */
-.reviews{padding:120px 0;}
-.reviews__grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
-.review{
-  background:var(--bg-soft); padding:36px; border-radius:20px;
-  border:1px solid var(--line);
-}
-.review__text{font-style:italic; margin-bottom:24px; font-size:15px;}
-.review__author{font-size:12px; text-transform:uppercase; letter-spacing:.1em; color:var(--accent);}
-
-/* ============ FOOTER ============ */
-.footer{padding:100px 0; text-align:center; border-top:1px solid var(--line);}
-.footer h2{margin-bottom:32px;}
-
-@media(max-width:900px){
-  .about__grid, .services__grid, .portfolio__grid, .reviews__grid{grid-template-columns:1fr;}
-  .hero{text-align:center; padding-top:80px;}
-  .hero__sub{margin:0 auto 44px;}
-  .btn--outline{margin: 15px 0 0 0; display:block;}
-}
-</style>
+<!-- Подключаем стили -->
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
@@ -146,8 +22,10 @@ img{max-width:100%; display:block; object-fit: cover;}
       <div class="eyebrow">Digital-эксперт</div>
       <h1 class="hero__title">Твой визуал.<br>Моя <em>работа.</em></h1>
       <p class="hero__sub">Создаю вирусные Reels для экспертов и разрабатываю персональные сайты, которые вызывают доверие и приносят продажи.</p>
-      <a href="#contact" class="btn btn--primary">Обсудить проект</a>
-      <a href="#portfolio" class="btn btn--outline">Смотреть работы</a>
+      <div class="hero__buttons">
+        <a href="#contact" class="btn btn--primary">Обсудить проект</a>
+        <a href="#portfolio" class="btn btn--outline">Смотреть работы</a>
+      </div>
     </div>
   </div>
 </section>
@@ -157,7 +35,7 @@ img{max-width:100%; display:block; object-fit: cover;}
   <div class="container about__grid">
     <div class="about__img">
       <!-- Замени ссылку на свою крутую фотку -->
-      <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000" alt="Андрей">
+      <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000" alt="Андрей Дашков">
     </div>
     <div class="about__text">
       <div class="eyebrow">Обо мне</div>
@@ -254,10 +132,12 @@ img{max-width:100%; display:block; object-fit: cover;}
     <h2 class="h2">Готов вывести твой проект<br>на <em>новый уровень?</em></h2>
     <a href="https://t.me/adashkovv" target="_blank" class="btn btn--primary">Написать в Telegram</a>
   </div>
-  <div style="margin-top:80px; color:var(--ink-soft); font-size:12px; letter-spacing: 0.1em;">
+  <div class="footer__copy">
     © Андрей Дашков, 2026
   </div>
 </footer>
 
+<!-- Подключаем скрипты -->
+<script src="script.js"></script>
 </body>
 </html>
